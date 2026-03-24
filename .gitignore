@@ -2,3 +2,5 @@ mlruns/
 data/
 venv/
 mlartifacts/
+*.csv
+*.xlsx

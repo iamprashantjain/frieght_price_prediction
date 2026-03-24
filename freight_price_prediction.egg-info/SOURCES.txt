@@ -1,0 +1,12 @@
+setup.py
+freight_price_prediction.egg-info/PKG-INFO
+freight_price_prediction.egg-info/SOURCES.txt
+freight_price_prediction.egg-info/dependency_links.txt
+freight_price_prediction.egg-info/top_level.txt
+src/__init__.py
+src/components/__init__.py
+src/components/data_ingestion.py
+src/utils/__init__.py
+src/utils/exception.py
+src/utils/logging.py
+src/utils/utils.py

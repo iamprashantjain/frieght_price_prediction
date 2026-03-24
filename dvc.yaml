@@ -1,0 +1,15 @@
+stages:
+  data_ingestion:
+    cmd: python src/components/data_ingestion.py
+    deps:
+      - src/components/data_ingestion.py
+      - src/utils/utils.py
+      - src/utils/logging.py
+      - src/utils/exception.py
+      - params.yaml
+    params:
+      - data_ingestion.database_path
+      - data_ingestion.tables
+    outs:
+      - data/raw
+      - data/processed/vendor_invoice_with_features.csv

@@ -1,0 +1,18 @@
+{
+  "best_params": {
+    "colsample_bytree": 1.0,
+    "learning_rate": 0.05,
+    "max_depth": 3,
+    "n_estimators": 200,
+    "subsample": 0.8
+  },
+  "best_cv_r2": 0.9605795141409743,
+  "test_r2": 0.9550117363448375,
+  "test_mae": 25.940840338078353,
+  "test_rmse": 152.42377986641944,
+  "total_combinations": 72,
+  "n_train_samples": 4434,
+  "n_test_samples": 1109,
+  "n_features": 2,
+  "timestamp": "2026-03-24T17:51:41.416150"
+}

@@ -1,0 +1,20 @@
+[2026-03-25 15:03:47,964] 21 root - INFO - Loading vendor_invoice...
+[2026-03-25 15:03:48,115] 24 root - INFO - Loading purchase_prices...
+[2026-03-25 15:03:48,321] 27 root - INFO - Loading purchases...
+[2026-03-25 15:04:43,075] 31 root - INFO - Adding features...
+[2026-03-25 15:04:43,258] 55 root - WARNING - PONumber column missing in vendor_df or purchase_prices_df
+[2026-03-25 15:04:43,259] 59 root - INFO - Adding days_to_receive column...
+[2026-03-25 15:04:47,503] 70 root - INFO - Added days_to_receive column
+[2026-03-25 15:04:47,504] 38 root - INFO - Selected columns: ['Quantity', 'Dollars', 'days_to_receive', 'Freight']
+[2026-03-25 15:04:47,897] 50 root - INFO - Data shape after dropping missing: (2372474, 4)
+[2026-03-25 15:04:47,898] 51 root - INFO - Dropped 0 rows with missing values
+[2026-03-25 15:05:15,502] 91 root - INFO - Train shape: (1897979, 4)
+[2026-03-25 15:05:15,503] 92 root - INFO - Test shape: (474495, 4)
+[2026-03-25 15:05:15,503] 68 root - INFO - ============================================================
+[2026-03-25 15:05:15,504] 69 root - INFO - DATA INGESTION COMPLETED SUCCESSFULLY
+[2026-03-25 15:05:15,504] 70 root - INFO - ============================================================
+[2026-03-25 15:05:15,504] 71 root - INFO - Train data saved to: ./data/raw/train.csv
+[2026-03-25 15:05:15,504] 72 root - INFO - Test data saved to: ./data/raw/test.csv
+[2026-03-25 15:05:15,504] 73 root - INFO - Train size: 1897979 rows
+[2026-03-25 15:05:15,505] 74 root - INFO - Test size: 474495 rows
+[2026-03-25 15:05:15,505] 75 root - INFO - Features: ['Quantity', 'Dollars', 'days_to_receive', 'Freight']

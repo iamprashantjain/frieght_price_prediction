@@ -10,6 +10,7 @@ stages:
     params:
       - data_ingestion.database_path
       - data_ingestion.tables
+      - data_ingestion.test_size
+      - data_ingestion.random_state
     outs:
       - data/raw
-      - data/processed/vendor_invoice_with_features.csv

@@ -9,37 +9,35 @@ stages:
       size: 252
     - path: src/components/data_ingestion.py
       hash: md5
-      md5: e2ddb38a0e9e5bd0cc885206d268abe7
-      size: 3578
+      md5: 11bce0289dcf6ab1e849df6fdcd02dd8
+      size: 3095
     - path: src/utils/exception.py
       hash: md5
-      md5: 3350bfd1de1344f17818d8e730be701b
-      size: 516
+      md5: e51ea6e390cb354e4d906e901e028c0f
+      size: 773
     - path: src/utils/logging.py
       hash: md5
-      md5: 4683837262d47d6234af18def902c470
-      size: 439
+      md5: 6c34fd303afe2e062a71837a80a6ab40
+      size: 628
     - path: src/utils/utils.py
       hash: md5
-      md5: 952a91e83134a8ededf3637490c562c7
-      size: 1976
+      md5: cb0638633fb3ed9028d46e501da6cd11
+      size: 4128
     params:
       params.yaml:
         data_ingestion.database_path: 
           J:/mlops_revisited/frieght_price_prediction/data/inventory.db
+        data_ingestion.random_state: 42
         data_ingestion.tables:
         - vendor_invoice
         - purchase_prices
         - purchases
         - begin_inventory
         - end_inventory
+        data_ingestion.test_size: 0.2
     outs:
-    - path: data/processed/vendor_invoice_with_features.csv
-      hash: md5
-      md5: afad110026c3c41b974b7353d0ec0c3f
-      size: 242604766
     - path: data/raw
       hash: md5
-      md5: 043faaa58ad4ee3634b5e83f9c6f81fd.dir
-      size: 402385699
-      nfiles: 5
+      md5: 2332b891372555ea2740a0eeadb53d60.dir
+      size: 59098161
+      nfiles: 2

@@ -81,7 +81,7 @@ def add_features(vendor_df: pd.DataFrame, purchase_prices_df: pd.DataFrame, purc
 def save_data(train_data: pd.DataFrame, test_data: pd.DataFrame, data_path: str) -> None:
     """Save the train and test datasets."""
     try:
-        processed_data_path = os.path.join(data_path, 'processed')
+        processed_data_path = os.path.join(data_path, 'raw')
         os.makedirs(processed_data_path, exist_ok=True)
         
         train_data.to_csv(os.path.join(processed_data_path, "train.csv"), index=False)

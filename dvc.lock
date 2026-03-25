@@ -5,12 +5,12 @@ stages:
     deps:
     - path: params.yaml
       hash: md5
-      md5: 28a4937690929d62804b254b2f347ef8
-      size: 252
+      md5: f2c101e1a39897a87c849603a07935e5
+      size: 1156
     - path: src/components/data_ingestion.py
       hash: md5
-      md5: 11bce0289dcf6ab1e849df6fdcd02dd8
-      size: 3095
+      md5: 56e95324f2c569ac02005195ee876621
+      size: 2659
     - path: src/utils/exception.py
       hash: md5
       md5: e51ea6e390cb354e4d906e901e028c0f
@@ -21,23 +21,94 @@ stages:
       size: 628
     - path: src/utils/utils.py
       hash: md5
-      md5: cb0638633fb3ed9028d46e501da6cd11
-      size: 4128
-    params:
-      params.yaml:
-        data_ingestion.database_path: 
-          J:/mlops_revisited/frieght_price_prediction/data/inventory.db
-        data_ingestion.random_state: 42
-        data_ingestion.tables:
-        - vendor_invoice
-        - purchase_prices
-        - purchases
-        - begin_inventory
-        - end_inventory
-        data_ingestion.test_size: 0.2
+      md5: bb39ad7cfdb05646f77821b28f8ec5c5
+      size: 4021
     outs:
-    - path: data/raw
+    - path: data/raw/test.csv
       hash: md5
-      md5: 2332b891372555ea2740a0eeadb53d60.dir
-      size: 59098161
-      nfiles: 2
+      md5: 106bbc1d0ca5301b1e5971835ee04e26
+      size: 11820585
+    - path: data/raw/train.csv
+      hash: md5
+      md5: 0cbe1c0520f07ffea82f1c30f7649a7a
+      size: 47277576
+  feature_engineering:
+    cmd: python src/components/feature_engineering.py
+    deps:
+    - path: data/raw/test.csv
+      hash: md5
+      md5: 106bbc1d0ca5301b1e5971835ee04e26
+      size: 11820585
+    - path: data/raw/train.csv
+      hash: md5
+      md5: 0cbe1c0520f07ffea82f1c30f7649a7a
+      size: 47277576
+    - path: params.yaml
+      hash: md5
+      md5: f2c101e1a39897a87c849603a07935e5
+      size: 1156
+    - path: src/components/feature_engineering.py
+      hash: md5
+      md5: 3f43f54fddf751ed32e3d6291caf86a5
+      size: 9028
+    - path: src/utils/exception.py
+      hash: md5
+      md5: e51ea6e390cb354e4d906e901e028c0f
+      size: 773
+    - path: src/utils/logging.py
+      hash: md5
+      md5: 6c34fd303afe2e062a71837a80a6ab40
+      size: 628
+    - path: src/utils/utils.py
+      hash: md5
+      md5: bb39ad7cfdb05646f77821b28f8ec5c5
+      size: 4021
+    outs:
+    - path: data/processed/test_engineered.csv
+      hash: md5
+      md5: 89ed77552a72a4c4e82c79b42b76e847
+      size: 64765047
+    - path: data/processed/train_engineered.csv
+      hash: md5
+      md5: ceef3ee5d8b73a7e2728758be483679a
+      size: 259061291
+  xgboost_model_building:
+    cmd: python src/components/model_building.py
+    deps:
+    - path: data/processed/test_engineered.csv
+      hash: md5
+      md5: 89ed77552a72a4c4e82c79b42b76e847
+      size: 64765047
+    - path: data/processed/train_engineered.csv
+      hash: md5
+      md5: ceef3ee5d8b73a7e2728758be483679a
+      size: 259061291
+    - path: src/components/model_building.py
+      hash: md5
+      md5: cc9a017bc907ea7ba72708c8edb11a7b
+      size: 8519
+    - path: src/utils/exception.py
+      hash: md5
+      md5: e51ea6e390cb354e4d906e901e028c0f
+      size: 773
+    - path: src/utils/logging.py
+      hash: md5
+      md5: 6c34fd303afe2e062a71837a80a6ab40
+      size: 628
+    - path: src/utils/utils.py
+      hash: md5
+      md5: bb39ad7cfdb05646f77821b28f8ec5c5
+      size: 4021
+    outs:
+    - path: models/xgboost/model_metadata.json
+      hash: md5
+      md5: 2b8adc01a50d9338b358c630cd7baa98
+      size: 914
+    - path: models/xgboost/scaler.pkl
+      hash: md5
+      md5: f78bd1d204910610544d25759e7fa84a
+      size: 729
+    - path: models/xgboost/xgboost_model.pkl
+      hash: md5
+      md5: f9c4f118cf0c549efa21b1bb0d4ef455
+      size: 512129

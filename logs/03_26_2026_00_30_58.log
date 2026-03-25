@@ -1,0 +1,37 @@
+[2026-03-26 00:30:58,330] 186 root - INFO - ============================================================
+[2026-03-26 00:30:58,331] 187 root - INFO - FEATURE ENGINEERING STAGE STARTED
+[2026-03-26 00:30:58,332] 188 root - INFO - ============================================================
+[2026-03-26 00:30:58,334] 191 root - INFO - Loading data from data ingestion stage...
+[2026-03-26 00:31:05,244] 28 root - INFO - Loaded train data: (1897979, 4)
+[2026-03-26 00:31:05,245] 29 root - INFO - Loaded test data: (474495, 4)
+[2026-03-26 00:31:05,245] 195 root - INFO - 
+Engineering features for train data...
+[2026-03-26 00:31:05,622] 59 root - INFO - \u2713 Added avg_unit_price
+[2026-03-26 00:31:05,789] 100 root - INFO - \u2713 Added freight_per_unit
+[2026-03-26 00:31:06,000] 109 root - INFO - \u2713 Added freight_per_dollar
+[2026-03-26 00:31:06,357] 114 root - INFO - \u2713 Added log_quantity
+[2026-03-26 00:31:06,572] 118 root - INFO - \u2713 Added log_dollars
+[2026-03-26 00:31:06,837] 122 root - INFO - \u2713 Added log_freight
+[2026-03-26 00:31:10,324] 138 root - INFO - Total features after engineering: 10
+[2026-03-26 00:31:10,324] 199 root - INFO - 
+Engineering features for test data...
+[2026-03-26 00:31:10,357] 59 root - INFO - \u2713 Added avg_unit_price
+[2026-03-26 00:31:10,376] 100 root - INFO - \u2713 Added freight_per_unit
+[2026-03-26 00:31:10,397] 109 root - INFO - \u2713 Added freight_per_dollar
+[2026-03-26 00:31:10,437] 114 root - INFO - \u2713 Added log_quantity
+[2026-03-26 00:31:10,482] 118 root - INFO - \u2713 Added log_dollars
+[2026-03-26 00:31:10,517] 122 root - INFO - \u2713 Added log_freight
+[2026-03-26 00:31:10,867] 138 root - INFO - Total features after engineering: 10
+[2026-03-26 00:31:10,867] 203 root - INFO - 
+Selecting best features...
+[2026-03-26 00:31:10,868] 172 root - INFO - Selected 9 features for modeling
+[2026-03-26 00:31:11,192] 172 root - INFO - Selected 9 features for modeling
+[2026-03-26 00:34:52,381] 214 root - INFO - 
+============================================================
+[2026-03-26 00:34:52,381] 215 root - INFO - FEATURE ENGINEERING COMPLETED SUCCESSFULLY
+[2026-03-26 00:34:52,381] 216 root - INFO - ============================================================
+[2026-03-26 00:34:52,383] 217 root - INFO - Engineered train data saved to: data\processed/train_engineered.csv
+[2026-03-26 00:34:52,383] 218 root - INFO - Engineered test data saved to: data\processed/test_engineered.csv
+[2026-03-26 00:34:52,384] 219 root - INFO - Final train shape: (1897979, 9)
+[2026-03-26 00:34:52,384] 220 root - INFO - Final test shape: (474495, 9)
+[2026-03-26 00:34:52,384] 221 root - INFO - Features used: ['Quantity', 'Dollars', 'avg_unit_price', 'freight_per_unit', 'freight_per_dollar', 'log_quantity', 'log_dollars', 'log_freight']

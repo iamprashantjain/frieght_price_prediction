@@ -1,0 +1,39 @@
+[2026-03-26 00:37:57,321] 197 root - INFO - ============================================================
+[2026-03-26 00:37:57,322] 198 root - INFO - XGBOOST MODEL BUILDING
+[2026-03-26 00:37:57,323] 199 root - INFO - ============================================================
+[2026-03-26 00:37:57,324] 200 root - INFO - Experiment: XGBoost_Advanced_Features
+[2026-03-26 00:37:57,324] 201 root - INFO - Total features: 20
+[2026-03-26 00:37:57,324] 202 root - INFO - Train samples: 4346
+[2026-03-26 00:37:57,324] 203 root - INFO - Test samples: 1087
+[2026-03-26 00:37:57,328] 204 root - INFO - ============================================================
+[2026-03-26 00:37:57,328] 207 root - INFO - 
+1. Loading engineered data...
+[2026-03-26 00:38:10,875] 29 root - INFO - Loaded train data: (1897979, 9)
+[2026-03-26 00:38:10,875] 30 root - INFO - Loaded test data: (474495, 9)
+[2026-03-26 00:38:10,875] 212 root - INFO - 
+2. Preparing data with selected features...
+[2026-03-26 00:38:10,876] 49 root - WARNING - Missing features: {'payment_efficiency', 'is_q4', 'inventory_turnover', 'days_to_pay', 'is_summer', 'avg_inventory', 'invoice_month', 'invoice_weekend', 'avg_end_inventory', 'is_holiday_season', 'avg_begin_inventory', 'invoice_quarter'}
+[2026-03-26 00:38:11,077] 54 root - INFO - Features shape: (1897979, 8)
+[2026-03-26 00:38:11,077] 55 root - INFO - Features used: ['Quantity', 'Dollars', 'avg_unit_price', 'freight_per_unit', 'freight_per_dollar', 'log_quantity', 'log_dollars', 'log_freight']
+[2026-03-26 00:38:11,078] 49 root - WARNING - Missing features: {'payment_efficiency', 'is_q4', 'inventory_turnover', 'days_to_pay', 'is_summer', 'avg_inventory', 'invoice_month', 'invoice_weekend', 'avg_end_inventory', 'is_holiday_season', 'avg_begin_inventory', 'invoice_quarter'}
+[2026-03-26 00:38:11,116] 54 root - INFO - Features shape: (474495, 8)
+[2026-03-26 00:38:11,116] 55 root - INFO - Features used: ['Quantity', 'Dollars', 'avg_unit_price', 'freight_per_unit', 'freight_per_dollar', 'log_quantity', 'log_dollars', 'log_freight']
+[2026-03-26 00:38:11,117] 217 root - INFO - 
+3. Scaling features...
+[2026-03-26 00:38:13,353] 81 root - INFO - Features scaled using RobustScaler
+[2026-03-26 00:38:13,354] 224 root - INFO - 
+4. Training XGBoost model...
+[2026-03-26 00:38:13,354] 108 root - INFO - Training XGBoost model...
+[2026-03-26 00:38:13,354] 109 root - INFO - Hyperparameters: {'n_estimators': 200, 'max_depth': 5, 'learning_rate': 0.1, 'subsample': 1.0, 'colsample_bytree': 1.0, 'gamma': 0, 'min_child_weight': 1, 'random_state': 42, 'experiment_name': 'XGBoost_Advanced_Features', 'scaler_type': 'RobustScaler', 'train_samples': 4346, 'test_samples': 1087, 'total_features': 22}
+[2026-03-26 00:39:01,578] 113 root - INFO - XGBoost model trained successfully
+[2026-03-26 00:39:01,578] 228 root - INFO - 
+5. Saving model and artifacts...
+[2026-03-26 00:39:02,032] 156 root - INFO - Model saved to: models/xgboost\xgboost_model.pkl
+[2026-03-26 00:39:02,032] 157 root - INFO - Scaler saved to: models/xgboost\scaler.pkl
+[2026-03-26 00:39:02,032] 158 root - INFO - Metadata saved to: models/xgboost\model_metadata.json
+[2026-03-26 00:39:02,032] 232 root - INFO - 
+============================================================
+[2026-03-26 00:39:02,033] 233 root - INFO - XGBOOST MODEL BUILDING COMPLETED
+[2026-03-26 00:39:02,033] 234 root - INFO - ============================================================
+[2026-03-26 00:39:02,033] 235 root - INFO - Model saved to: models/xgboost
+[2026-03-26 00:39:02,033] 236 root - INFO - Features used: 8

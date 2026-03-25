@@ -8,3 +8,45 @@ data_ingestion:
     - end_inventory
   test_size: 0.2
   random_state: 42
+  output_path: data/raw
+
+feature_engineering:
+  input_path: data/raw
+  output_path: data/processed
+
+xgboost_model:
+  n_estimators: 200
+  max_depth: 5
+  learning_rate: 0.1
+  subsample: 1.0
+  colsample_bytree: 1.0
+  gamma: 0
+  min_child_weight: 1
+  random_state: 42
+  experiment_name: "XGBoost_Advanced_Features"
+  scaler_type: "RobustScaler"
+  train_samples: 4346
+  test_samples: 1087
+  total_features: 22
+  feature_list:
+    - Quantity
+    - Dollars
+    - avg_unit_price
+    - days_to_pay
+    - invoice_month
+    - invoice_quarter
+    - invoice_weekend
+    - is_holiday_season
+    - is_summer
+    - is_q4
+    - payment_efficiency
+    - avg_begin_inventory
+    - avg_end_inventory
+    - avg_inventory
+    - inventory_turnover
+    - freight_per_unit
+    - freight_per_dollar
+    - log_quantity
+    - log_dollars
+    - log_freight
+  model_save_path: models/xgboost

@@ -78,16 +78,15 @@ def add_features(vendor_df: pd.DataFrame, purchase_prices_df: pd.DataFrame, purc
         raise customexception(f"Error adding features: {e}", sys)
 
 
-def save_data(train_data: pd.DataFrame, test_data: pd.DataFrame, data_path: str) -> None:
+def save_data(train_data: pd.DataFrame, test_data: pd.DataFrame, save_dir: str) -> None:
     """Save the train and test datasets."""
     try:
-        processed_data_path = os.path.join(data_path, 'raw')
-        os.makedirs(processed_data_path, exist_ok=True)
+        os.makedirs(save_dir, exist_ok=True)
         
-        train_data.to_csv(os.path.join(processed_data_path, "train.csv"), index=False)
-        test_data.to_csv(os.path.join(processed_data_path, "test.csv"), index=False)
+        train_data.to_csv(os.path.join(save_dir, "train.csv"), index=False)
+        test_data.to_csv(os.path.join(save_dir, "test.csv"), index=False)
         
-        logging.debug('Train and test data saved to %s', processed_data_path)
+        logging.debug('Train and test data saved to %s', save_dir)
         logging.info('Train shape: %s', train_data.shape)
         logging.info('Test shape: %s', test_data.shape)
         

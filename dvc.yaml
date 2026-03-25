@@ -7,10 +7,34 @@ stages:
       - src/utils/logging.py
       - src/utils/exception.py
       - params.yaml
-    params:
-      - data_ingestion.database_path
-      - data_ingestion.tables
-      - data_ingestion.test_size
-      - data_ingestion.random_state
     outs:
-      - data/raw
+      - data/raw/train.csv
+      - data/raw/test.csv
+  
+  feature_engineering:
+    cmd: python src/components/feature_engineering.py
+    deps:
+      - src/components/feature_engineering.py
+      - src/utils/utils.py
+      - src/utils/logging.py
+      - src/utils/exception.py
+      - params.yaml
+      - data/raw/train.csv
+      - data/raw/test.csv
+    outs:
+      - data/processed/train_engineered.csv
+      - data/processed/test_engineered.csv
+  
+  xgboost_model_building:
+    cmd: python src/components/model_building.py
+    deps:
+      - src/components/model_building.py
+      - src/utils/utils.py
+      - src/utils/logging.py
+      - src/utils/exception.py
+      - data/processed/train_engineered.csv
+      - data/processed/test_engineered.csv
+    outs:
+      - models/xgboost/xgboost_model.pkl
+      - models/xgboost/scaler.pkl
+      - models/xgboost/model_metadata.json
